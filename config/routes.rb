@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :subgenres
+  resources :subgenres do
+    resources :works
+  end
 end

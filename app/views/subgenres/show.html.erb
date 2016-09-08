@@ -1,3 +1,23 @@
 <h1><%= @subgenre.description %></h1>
 
+<% if @subgenre.works.any? %>
+  <h4>Here are the works for this subgenre</h4>
+
+  <ul>
+    <% @subgenre.works.each do |work| %>
+      <li>
+        <%= work.title %> |
+        <%= work.artist %> |
+        <%= link_to "Edit", edit_subgenre_work_path(@subgenre, work)%> |
+        <%= link_to "Delete", subgenre_work_path(@subgenre, work),
+                              :data => {:confirm => "Are You Sure?",
+                                            :method => "delete"}%>
+      </li>
+      <% end %>
+  </ul>
+<% else %>
+  <p>There are no works yet!</p>
+<% end %>
+
+<p><%= link_to "Add a work", new_subgenre_work_path(@subgenre) %></p>
 <p><%= link_to "Return to subgenres", subgenres_path %></p>
