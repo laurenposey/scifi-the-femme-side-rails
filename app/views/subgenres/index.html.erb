@@ -1,0 +1,8 @@
+<h1>SciFi-The Femme Side</h1>
+<h2>Subgenres</h2>
+
+<ul>
+  <% @subgenres.each do |subgenre|%>
+    <li><%= link_to subgenre.description, subgenre_path(subgenre) %></li>
+  <% end %>
+</ul>
